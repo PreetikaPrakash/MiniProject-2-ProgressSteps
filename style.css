@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Jersey+15&family=Playwrite+AU+SA:wght@100..400&display=swap");
+
+:root {
+  --line-border-fill: brown;
+  --line-border-empty: grey;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blanchedalmond;
+  font-family: "Jersey 15", serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  /* // centers the text horizontally within the container */
+}
+
+.progress-container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  width: 400px;
+  max-width: 100%;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  height: 5px;
+  transform: translateY(-50%); /*to align it right in middle*/
+  z-index: -1; /*so that line is behind numbers*/
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  width: 0%;
+  top: 50%;
+  left: 0;
+  height: 5px;
+  transform: translateY(-50%); /*to align it right in middle*/
+  z-index: -1; /*so that line is behind numbers*/
+  transition: 0.4 ease;
+}
+
+.circle {
+  background-color: whitesmoke;
+  color: grey;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4 ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  padding: 8px 30px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 80%;
+  font-size: 30px;
+  font-family: inherit;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
